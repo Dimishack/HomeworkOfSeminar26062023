@@ -8,8 +8,8 @@ namespace HomeworkOfSeminar26062023
         {
 			try
 			{
-                Console.WriteLine("Задача №13:");
-                Target13.ThirdDigitOfNumber();
+                Console.WriteLine("Задача №15:");
+                Target15.DayOfWeek();
             }
 			catch (Exception ex)
 			{
