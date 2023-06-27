@@ -8,8 +8,8 @@ namespace HomeworkOfSeminar26062023
         {
 			try
 			{
-                Console.WriteLine("Задача №15:");
-                Target15.DayOfWeek();
+                Console.WriteLine("Дополнительная задача:");
+                AdditionalTask.FindInterestingNumbers();
             }
 			catch (Exception ex)
 			{
