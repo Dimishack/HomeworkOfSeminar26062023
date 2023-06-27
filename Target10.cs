@@ -12,12 +12,21 @@ namespace HomeworkOfSeminar26062023
     {
         internal static void SecondDigitOfNumber()
         {
-            Console.Write("Введите трехзначное положительное число для вывода его второй цифры: ");
-            string number = Console.ReadLine();
-            if (!ushort.TryParse(number, out _) || number.Length != 3)
-                Console.WriteLine("Данное значение не является трехзначным положительным числом!");
-            else 
-                Console.WriteLine("Вторая цифра трехзначного числа {0} является: {1}", number, number[1]);
+            ConsoleKey key;
+            do
+            {
+                Console.Write("Введите трехзначное положительное число для вывода его второй цифры: ");
+                string number = Console.ReadLine();
+                if (!ushort.TryParse(number, out _) || number.Length != 3)
+                    Console.WriteLine("Данное значение не является трехзначным положительным числом!");
+                else
+                    Console.WriteLine("Вторая цифра трехзначного числа {0} является: {1}", number, number[1]);
+
+                Console.WriteLine("\nEnter - Вернуться к журналу \nЛюбая другая клавиша - решить заново");
+                Console.Write("Выберите действие: ");
+                key = Console.ReadKey().Key;
+                Console.WriteLine();
+            } while (key != ConsoleKey.Enter);
         }
     }
 }
