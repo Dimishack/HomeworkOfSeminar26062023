@@ -50,7 +50,7 @@ namespace HomeworkOfSeminar26062023
                         case ConsoleKey.Enter:
                             break;
                         default:
-                            Console.WriteLine("Данная клавиша в журнал не добавлен!");
+                            Console.WriteLine("Данная клавиша в журнал не добавлена!");
                             Console.SetCursorPosition(0, 0);
                             break;
                     }
