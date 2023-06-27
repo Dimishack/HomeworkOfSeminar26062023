@@ -8,8 +8,8 @@ namespace HomeworkOfSeminar26062023
         {
 			try
 			{
-                Console.WriteLine("Задача №10:");
-                Target10.SecondDigitOfNumber();
+                Console.WriteLine("Задача №13:");
+                Target13.ThirdDigitOfNumber();
             }
 			catch (Exception ex)
 			{
