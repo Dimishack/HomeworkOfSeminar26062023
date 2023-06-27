@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace HomeworkOfSeminar26062023
 {
@@ -15,29 +16,41 @@ namespace HomeworkOfSeminar26062023
     {
         internal static void FindInterestingNumbers()
         {
-            Random random = new Random();
-            string[] interestingNumbers = new string[10];
-            Console.WriteLine("Интересные числа: ");
-            for (int i = 0; i < interestingNumbers.Length;)
+            ConsoleKey key;
+            do
             {
-                string number = random.Next(10, 1000).ToString();
-                if (Array.IndexOf(interestingNumbers, number) != -1)
-                    continue;
-                int resultSum = Convert.ToInt32(number[0] - '0');
-                int resultMult = Convert.ToInt32(number[0] - '0');
-                for (int j = 1; j < number.Length; j++)
+                Random random = new Random();
+                string[] interestingNumbers = new string[10];
+                Console.WriteLine("Интересные числа: ");
+                for (int i = 0; i < interestingNumbers.Length;)
                 {
-                    resultSum += Convert.ToInt32(number[j] - '0');
-                    resultMult *= Convert.ToInt32(number[j] - '0');
+                    string number = random.Next(10, 1000).ToString();
+                    if (Array.IndexOf(interestingNumbers, number) != -1)
+                        continue;
+                    int resultSum = Convert.ToInt32(number[0] - '0');
+                    int resultMult = Convert.ToInt32(number[0] - '0');
+                    for (int j = 1; j < number.Length; j++)
+                    {
+                        resultSum += Convert.ToInt32(number[j] - '0');
+                        resultMult *= Convert.ToInt32(number[j] - '0');
+                    }
+                    if (resultMult % resultSum == 0)
+                    {
+                        interestingNumbers[i] = number;
+                        Console.Write(number);
+                        if (i < interestingNumbers.Length - 1) Console.Write(", ");
+                        i++;
+                    }
                 }
-                if (resultMult % resultSum == 0)
-                {
-                    interestingNumbers[i] = number;
-                    Console.Write(number);
-                    if (i < interestingNumbers.Length - 1) Console.Write(", ");
-                    i++;
-                }
-            }
+
+                Console.WriteLine(  "\nEnter - Вернуться к журналу \nC - Открыть калькулятор и решить заново " +
+                                    "\nЛюбая другая клавиша - решить заново");
+                Console.Write("Выберите действие: ");
+                key = Console.ReadKey().Key;
+                if (key == ConsoleKey.C)
+                    Process.Start("calc");
+                Console.WriteLine('\n');
+            } while (key != ConsoleKey.Enter);
         }
     }
 }
