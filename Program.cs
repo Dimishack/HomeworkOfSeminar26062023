@@ -4,6 +4,7 @@ namespace HomeworkOfSeminar26062023
 {
     internal class Program
     {
+        // (●'◡'●)
         static void Main()
         {
             try
