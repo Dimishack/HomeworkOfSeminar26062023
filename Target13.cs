@@ -12,15 +12,24 @@ namespace HomeworkOfSeminar26062023
     {
         internal static void ThirdDigitOfNumber()
         {
-            Console.Write("Введите положительное число для вывода его третьей цифры (до 10 цифр): ");
-            string number = Console.ReadLine();
-            if (!uint.TryParse(number, out _) || number.Length > 9)
-                Console.WriteLine("Данное значение либо не является положительным числом, " +
-                    "\nили является числом, которое имеет больше 9 цифр!");
-            else if (number.Length < 3)
-                Console.WriteLine("У числа " + number + " третьей цифры нет");
-            else
-                Console.WriteLine("У число {0} третьей цифрой является: {1}", number, number[2]);
+            ConsoleKey key;
+            do
+            {
+                Console.Write("Введите положительное число для вывода его третьей цифры (до 10 цифр): ");
+                string number = Console.ReadLine();
+                if (!uint.TryParse(number, out _) || number.Length > 9)
+                    Console.WriteLine("Данное значение либо не является положительным числом, " +
+                        "\nили является числом, которое имеет больше 9 цифр!");
+                else if (number.Length < 3)
+                    Console.WriteLine("У числа " + number + " третьей цифры нет");
+                else
+                    Console.WriteLine("У число {0} третьей цифрой является: {1}", number, number[2]);
+
+                Console.WriteLine("\nEnter - Вернуться к журналу \nЛюбая другая клавиша - решить заново");
+                Console.Write("Выберите действие: ");
+                key = Console.ReadKey().Key;
+                Console.WriteLine();
+            } while (key != ConsoleKey.Enter);
         }
     }
 }
